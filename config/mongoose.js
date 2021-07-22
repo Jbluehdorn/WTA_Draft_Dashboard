@@ -2,12 +2,6 @@ import config from './index'
 import mongoose from 'mongoose'
 
 module.exports = app => {
-    mongoose.connection.on('open', (ref) => {
-        mongoose.connection.db.listCollections().toArray((err, names) => {
-            console.log(names)
-        })
-    })
-
     try {
         mongoose.connect(
             config.mongoUrl, 

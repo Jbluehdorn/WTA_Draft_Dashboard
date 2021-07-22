@@ -1,18 +1,20 @@
 import React from 'react'
-
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import Profile from './profile'
+import LoginButton from '../components/loginBtn'
+import LogoutButton from '../components/logoutBtn'
 
 export default class Main extends React.Component {
     render() {
         return(
             <div className="container-fluid">
-                <div className="card">
+                <div className="card mt-1">
                     <div className="card-header">
                         <h1>WTA Draft Bracket</h1>
                     </div>
-                    <div>
+
+                    <div className="card-body">
                         <nav>
                             <ul>
                                 <li>
@@ -23,14 +25,19 @@ export default class Main extends React.Component {
                                 </li>
                             </ul>
                         </nav>
+
+                        <Switch>
+                            <Route path="/profile" component={Profile} />
+                            <Route path="/" exact >
+                                <h1>Default</h1>
+                            </Route>
+                        </Switch>
                     </div>
 
-                    <Switch>
-                        <Route path="/profile" component={Profile} />
-                        <Route path="/" exact >
-                            <h1>Default</h1>
-                        </Route>
-                    </Switch>
+                    <div className="card-footer">
+                        <LoginButton />
+                        <LogoutButton />
+                    </div>
                 </div>
             </div>
         )
