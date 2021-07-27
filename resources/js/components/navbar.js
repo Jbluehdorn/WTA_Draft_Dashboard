@@ -32,23 +32,34 @@ class NavBar extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        {
-                            userRoutes.map(route => {
-                                return (
-                                    <li className="nav-item" key={route.name}>
-                                        <Link 
-                                            className={`nav-link ${this.props.location.pathname === route.pathName ? 'active' : ''}`}
-                                            to={route.pathName}
-                                            key={route}
-                                        >
-                                            {route.name}
-                                        </Link>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#primaryNav"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div className="collapse navbar-collapse" id="primaryNav">
+                        <ul className="navbar-nav me-auto mb-lg-0">
+                            {
+                                userRoutes.map(route => {
+                                    return (
+                                        <li className="nav-item" key={route.name}>
+                                            <Link 
+                                                className={`nav-link ${this.props.location.pathname === route.pathName ? 'active' : ''}`}
+                                                to={route.pathName}
+                                                key={route}
+                                            >
+                                                {route.name}
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
                 </div>
             </nav>   
         )

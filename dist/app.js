@@ -35989,8 +35989,18 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         className: "navbar navbar-expand-lg navbar-light bg-light"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-fluid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "navbar-toggler",
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#primaryNav"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "navbar-toggler-icon"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "collapse navbar-collapse",
+        id: "primaryNav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "navbar-nav me-auto mb-2 mb-lg-0"
+        className: "navbar-nav me-auto mb-lg-0"
       }, userRoutes.map(function (route) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item",
@@ -36000,7 +36010,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
           to: route.pathName,
           key: route
         }, route.name));
-      }))));
+      })))));
     }
   }]);
 
@@ -36139,7 +36149,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-6 offset-3 mt-1"
+        className: "col-12 col-md-6 offset-md-3 mt-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
