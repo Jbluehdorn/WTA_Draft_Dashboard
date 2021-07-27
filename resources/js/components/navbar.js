@@ -22,12 +22,19 @@ export const adminRoutes = [
 
 class NavBar extends React.Component {
     render() {
+        const { isAdmin, user } = this.props
+        let userRoutes = routes.slice()
+
+        if(isAdmin) {
+            userRoutes = routes.concat(adminRoutes)
+        }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         {
-                            routes.map(route => {
+                            userRoutes.map(route => {
                                 return (
                                     <li className="nav-item" key={route.name}>
                                         <Link 

@@ -10,7 +10,7 @@ class LogoutButton extends React.Component {
                 className="btn btn-danger" 
                 onClick={() => logout({ returnTo: window.location.origin })}
             >
-                Log Out
+                Sign Out
             </button>
         )
     }
