@@ -1,6 +1,8 @@
 import Express from 'express'
 import CustomResponses from './middleware/CustomResponses'
 import bodyParser from 'body-parser'
+import path from 'path'
+import cors from 'cors'
 
 const app = Express()
 
@@ -8,9 +10,15 @@ app.use(CustomResponses)
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+app.use(cors())
 
-app.set('view engine', 'pug')
-app.set('views', `${process.cwd()}/resources/views`)
+// app.set('view engine', 'pug')
+// app.set('views', `${process.cwd()}/resources/views`)
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/resources/index.html'))
+})
+
 require('./config/mongoose')(app)
 
 app.use(Express.static('dist'))

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import Profile from './profile'
 import LoginButton from '../components/loginBtn'
 import LogoutButton from '../components/logoutBtn'
+import NavBar from '../components/navbar'
 
 export default class Main extends React.Component {
     render() {
@@ -14,18 +15,9 @@ export default class Main extends React.Component {
                         <h1>WTA Draft Bracket</h1>
                     </div>
 
-                    <div className="card-body">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <Link to="/">Home</Link>
-                                </li>
-                                <li>
-                                    <Link to="/profile">Profile</Link>
-                                </li>
-                            </ul>
-                        </nav>
+                    <NavBar />
 
+                    <div className="card-body">
                         <Switch>
                             <Route path="/profile" component={Profile} />
                             <Route path="/" exact >
