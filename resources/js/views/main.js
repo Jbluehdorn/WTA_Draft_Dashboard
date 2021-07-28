@@ -1,12 +1,12 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { withAuth0 } from '@auth0/auth0-react'
 
 import Profile from './profile'
 import Login from './login'
 import Admin from './admin'
+import Tournaments from './tournaments'
 
-import LogoutButton from '../components/logoutBtn'
 import NavBar from '../components/navbar'
 import Spinner from '../components/spinner'
 
@@ -46,7 +46,7 @@ class Main extends React.Component {
             <div className="container-fluid pt-1">
                 {
                     isLoading ? (
-                        <Spinner size="3x" />
+                        <Spinner size="3x" color="white" />
                     ) : (
                         <div>
                             {
@@ -62,10 +62,11 @@ class Main extends React.Component {
                     
                                         <div className="card-body bg-light">
                                             <Switch>
+                                                <Route path="/tournaments" component={Tournaments} />
                                                 <Route path="/profile" component={Profile} />
                                                 <Route path="/admin" component={Admin} />
                                                 <Route path="/" exact >
-                                                    <h1>Default</h1>
+                                                    <Redirect to="/profile" />
                                                 </Route>
                                             </Switch>
                                         </div>

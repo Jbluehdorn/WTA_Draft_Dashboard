@@ -6,8 +6,8 @@ import Logout from './logoutBtn'
 
 export const routes = [
     {
-        name: 'Home',
-        pathName: '/'
+        name: 'Tournaments',
+        pathName: '/tournaments'
     },
     {
         name: 'Profile',
