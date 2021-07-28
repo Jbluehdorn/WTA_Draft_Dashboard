@@ -8,6 +8,7 @@ import Admin from './admin'
 
 import LogoutButton from '../components/logoutBtn'
 import NavBar from '../components/navbar'
+import Spinner from '../components/spinner'
 
 import { api_url } from '../consts'
 
@@ -42,24 +43,24 @@ class Main extends React.Component {
         }
 
         return(
-            <div className="container-fluid">
+            <div className="container-fluid pt-1">
                 {
                     isLoading ? (
-                        <div>Loading...</div>
+                        <Spinner size="3x" />
                     ) : (
                         <div>
                             {
                                 !isAuthenticated ? (
                                     <Login />
                                 ) : (
-                                    <div className="card mt-1">
-                                        <div className="card-header">
+                                    <div className="card bg-dark">
+                                        <div className="card-header bg-dark bg-gradient text-white">
                                             <h1>WTA Draft Bracket</h1>
                                         </div>
                     
                                         <NavBar isAdmin={profile ? profile.user_metadata.isAdmin : false} />
                     
-                                        <div className="card-body">
+                                        <div className="card-body bg-light">
                                             <Switch>
                                                 <Route path="/profile" component={Profile} />
                                                 <Route path="/admin" component={Admin} />
@@ -69,8 +70,8 @@ class Main extends React.Component {
                                             </Switch>
                                         </div>
                     
-                                        <div className="card-footer">
-                                            <LogoutButton />
+                                        <div className="card-footer bg-dark bg-gradient text-white">
+                                            {/* <LogoutButton /> */}
                                         </div>
                                     </div>
                                 )

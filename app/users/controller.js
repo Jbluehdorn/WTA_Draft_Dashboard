@@ -12,10 +12,8 @@ exports.create = async (req, res) => {
 exports.list = async (req, res) => {
     try {
         let users = await repo.findUsers()
-        console.log(users)
         res.success(users)
     } catch(err) {
-        console.log(err)
         res.error(err)
     }
 }

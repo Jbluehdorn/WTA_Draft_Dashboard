@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { withAuth0 } from '@auth0/auth0-react'
 
+import Logout from './logoutBtn'
+
 export const routes = [
     {
         name: 'Home',
@@ -30,7 +32,7 @@ class NavBar extends React.Component {
         }
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar bg-secondary text-white bg-gradient navbar-expand-lg navbar-dark">
                 <div className="container-fluid">
                     <button 
                         className="navbar-toggler" 
@@ -46,7 +48,7 @@ class NavBar extends React.Component {
                             {
                                 userRoutes.map(route => {
                                     return (
-                                        <li className="nav-item" key={route.name}>
+                                        <li className="nav-item text-center" key={route.name}>
                                             <Link 
                                                 className={`nav-link ${this.props.location.pathname === route.pathName ? 'active' : ''}`}
                                                 to={route.pathName}
@@ -59,6 +61,9 @@ class NavBar extends React.Component {
                                 })
                             }
                         </ul>
+                        <div className="d-grid">
+                            <Logout />
+                        </div>
                     </div>
                 </div>
             </nav>   
